@@ -16,9 +16,15 @@
 
     <div class="col-lg-7">
       <% if (sent) { %>
-        <div class="alert alert-success" role="status">
-          <i class="fa-solid fa-circle-check me-2"></i>Thanks<%= sentName ? ', ' + sentName : '' %>. Your message was received.
-        </div>
+          <div class="alert alert-success" role="status">
+            <i class="fa-solid fa-circle-check me-2"></i>Thanks! Your message was sent.
+          </div>
+      <% } %>
+
+      <% if (error) { %>
+          <div class="alert alert-danger" role="alert">
+            <i class="fa-solid fa-circle-exclamation me-2"></i><%= error %>
+          </div>
       <% } %>
 
       <form class="contact-form" method="post" action="/contact">

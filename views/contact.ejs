@@ -1,0 +1,42 @@
+<section class="container page">
+  <div class="row g-5">
+    <div class="col-lg-5">
+      <h1>Contact me</h1>
+      <p class="lead">Leave a message and I'll reply as soon as I can!</p>
+
+      <ul class="list-unstyled mt-4">
+        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>
+          <a href="mailto:trevorosokpor@gmail.com">trevorosokpor@gmail.com</a></li>
+        <li class="mb-2"><i class="fa-brands fa-github me-2"></i>
+          <a href="https://github.com/Trevor458" target="_blank" rel="noopener">GitHub</a></li>
+        <li class="mb-2"><i class="fa-brands fa-linkedin me-2"></i>
+          <a href="https://www.linkedin.com/in/oghenetano-osokpor-23969b1b4/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+
+    <div class="col-lg-7">
+      <% if (sent) { %>
+        <div class="alert alert-success" role="status">
+          <i class="fa-solid fa-circle-check me-2"></i>Thanks<%= sentName ? ', ' + sentName : '' %>. Your message was received.
+        </div>
+      <% } %>
+
+      <form class="contact-form" method="post" action="/contact">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="reset" class="btn btn-outline-dark me-2">Clear</button>
+        <button type="submit" class="btn btn-accent">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>

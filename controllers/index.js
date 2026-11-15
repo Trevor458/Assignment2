@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 
-router.get('/home', function(req, res, next) {
+router.get(['/', '/home'], function(req, res, next) {
   res.render('index', { title: 'Home', page: 'home' });
 });
 
@@ -17,6 +17,13 @@ router.get('/projects', function(req, res, next) {
 });
 
 router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact Me', page:'contact' });
+  res.render('contact', { title: 'Contact Me', page:'contact', sent: false, sentName: '' });
 });
+
+router.post('/contact', function(req, res, next) {
+  const { name, email, message } = req.body;
+  console.log('Contact form submission:', { name, email, message });
+  res.render('contact', { title: 'Contact Me', page: 'contact', sent: true, sentName: name });
+});
+
 module.exports = router;

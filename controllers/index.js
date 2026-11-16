@@ -1,3 +1,4 @@
+var nodemailer = require('nodemailer');
 var express = require('express');
 var router = express.Router();
 var transporter = nodemailer.createTransport({
